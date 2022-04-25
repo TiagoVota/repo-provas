@@ -8,6 +8,7 @@ import {
 	Login,
 	SignUp,
 	Disciplines,
+	Teachers,
 } from './pages/index'
 
 
@@ -18,6 +19,7 @@ const PagesRoutes = () => {
 				<Route path='/' element={<Login />}/>
 				<Route path='/sign-up' element={<SignUp />}/>
 				<Route path='/disciplines' element={<Disciplines />}/>
+				<Route path='/teachers' element={<Teachers />}/>
 			</Routes>
 		</Router>
 	)

@@ -5,7 +5,7 @@ import { headerHeight } from '../../utils/sharedSizes'
 
 const Container = styled.div`
 	width: 100%;
-	height: calc(100% - ${headerHeight});
+	height: calc(100vh - ${headerHeight});
 	margin-top: ${headerHeight};
 	
 	display: flex;

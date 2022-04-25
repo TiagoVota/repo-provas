@@ -1,6 +1,8 @@
-const headerHeight = '170px'
+const headerHeight = '140px'
+const SearchBarHeight = '70px'
 
 
 export {
 	headerHeight,
+	SearchBarHeight,
 }

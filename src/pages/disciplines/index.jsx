@@ -1,13 +1,9 @@
-import PageContainer from '../../components/pageContainer'
-
-import { Container } from './styles'
+import TestsPage from '../../components/testsPage'
 
 
 const Disciplines = () => {
 	return (
-		<PageContainer>
-			
-		</PageContainer>
+		<TestsPage type='disciplines' />
 	)
 }
 

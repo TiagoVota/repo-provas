@@ -42,7 +42,7 @@ const Label = styled.label`
 const Input = styled.input`
 	width: 100%;
 	height: 45px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 
 	padding-left: 13px;
 `

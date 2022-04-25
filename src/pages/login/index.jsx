@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import { handleValidation } from '../../validations/handleValidation'
 import { errorModal, successModal } from '../../factories/modalFactory'
-import { postLogin } from '../../services/api.auth'
+import * as api from '../../services/api.auth'
 
 import { loginSchema } from '../../schemas/userSchema'
 
@@ -42,14 +42,14 @@ const Login = () => {
 		event.preventDefault()
 
 		const body = {
+			...formData,
 			email: formData.email?.toLowerCase(),
-			password: formData.password
 		}
 		
 		const {isValid, error} = handleValidation(body, loginSchema)
 		if (!isValid) return errorModal(error)
 
-		postLogin(body)
+		api.postLogin(body)
 			.then(({ data: userInfo }) => {
 				successModal('Login realizado!')
 				login(userInfo)
@@ -72,7 +72,7 @@ const Login = () => {
 
 	const goHomepage = () => {
 		setFormData({})
-		navigate('/classes')
+		navigate('/disciplines')
 	}
 
 
@@ -116,7 +116,6 @@ const Login = () => {
 
 			</FormContainer>
 		</AuthContainer>
-
 	)
 }
 

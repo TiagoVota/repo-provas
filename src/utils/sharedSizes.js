@@ -1,4 +1,4 @@
-const headerHeight = '250px'
+const headerHeight = '170px'
 
 
 export {

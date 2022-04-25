@@ -7,7 +7,7 @@ import { headerZIndex } from '../../utils/z-indexes'
 const Container = styled.header`
 	width: 100%;
 	height: ${headerHeight};
-	padding: 10px 0;
+	padding: 0px 55px;
 
 	position: fixed;
 	top: 0;
@@ -21,17 +21,22 @@ const Container = styled.header`
 	font-weight: bold;
 	font-size: 26px;
 	line-height: 31px;
-	color: #FFFFFF;
+`
 
-	background-color: #151515;
+const Logo = styled.img`
+	width: 292px;
+	height: 63.5px;
+`
 
-	@media(max-width: 650px) {
-		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	}
+const Button = styled.button`
+	box-shadow: none;
+	background-color: transparent;
 `
 
 
 export {
 	Container,
+	Logo,
+	Button,
 }
 

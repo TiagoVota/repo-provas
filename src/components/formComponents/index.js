@@ -19,54 +19,66 @@ const FormContainer = styled.div`
 	}
 `
 
+const Title = styled.h1`
+	font-size: 24px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+
+	color: rgba(0, 0, 0, 0.8);
+`
+
 const Form = styled.form`
-	width: 80%;
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
+`
 
-	gap: 13px;
+const Label = styled.label`
+	font-size: 14px;
+	line-height: 26px;
 `
 
 const Input = styled.input`
 	width: 100%;
-	height: 58px;
+	height: 45px;
+	margin-bottom: 15px;
 
 	padding-left: 13px;
+`
 
-	font-size: 20px;
-
-	border-radius: 5px;
-	border-width: 0px;
+const ChangePageWrapper = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 `
 
 const Button = styled.button`
-	width: 100%;
-	height: 46px;
+	width: 116px;
+	height: 36px;
 
-	border-radius: 5px;
+	color: #FFFFFF;
+
+	border-width: 0px;
 	background: #1877F2;
-	
-	font-family: 'Oswald', sans-serif;
-	font-weight: bold;
-	font-size: 22px;
-	line-height: 33px;
 `
 
 const RedirectLink = styled(Link)`
-	font-family: 'Lato', sans-serif;
-	font-size: 17px;
-	line-height: 20px;
+	font-size: 12px;
+	line-height: 24px;
 	text-decoration-line: underline;
 
-	color: #FFFFFF;
+	color: rgba(70, 115, 202, 0.8);
 `
 
 
 export {
-	Button,
-	Form,
 	FormContainer,
+	Title,
+	Form,
 	Input,
+	Label,
+	ChangePageWrapper,
+	Button,
 	RedirectLink,
-} 
+}

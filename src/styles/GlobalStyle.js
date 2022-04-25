@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Poppins', sans-serif;
 		font-style: normal;
 		font-weight: 500;
+		color: rgba(0, 0, 0, 0.8);
+
     background-color: #FAFAFA;
   }
 
@@ -30,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
 
 		text-transform: uppercase;
 
+		border-radius: 4px;
+		box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+
 		color: #1976D2;
 		background-color: #FFFFFF;
 		opacity: ${p => p.isDisable ? 0.7 : 1};
@@ -42,8 +47,6 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	input {
-		margin: 0px 8px;
-
 		display: flex;
 		align-items: center;
 		letter-spacing: 0.15px;
@@ -54,12 +57,15 @@ const GlobalStyle = createGlobalStyle`
 		font-size: 16px;
 		line-height: 24px;
 
+		border-radius: 4px;
+		border: 1px solid #C4C4C4;
+
 		background-color: ${p => p.isDisable ? '#F2F2F2' : '#FFFFFF'};
 
 		pointer-events: ${p => p.isDisable ? 'wait' : 'all'};
 
 		::placeholder {
-			color: rgba(0, 0, 0, 0.6);
+			color: #575757;
 		}
 
 		:focus {

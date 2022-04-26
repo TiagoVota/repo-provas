@@ -21,7 +21,13 @@ const postSignUp = ({ name, email, password }) => {
 }
 
 
+const makeLogout = ({ token }) => {
+	return axios.delete(`${AUTH_URL}/logout`, makeConfig(token))
+}
+
+
 export {
 	postLogin,
 	postSignUp,
+	makeLogout,
 }

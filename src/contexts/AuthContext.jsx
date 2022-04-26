@@ -4,18 +4,23 @@ const AuthContext = createContext()
 
 
 const AuthProvider = ({ children }) => {
-	const mockAuth = { name: 'Fulano' }
+	const defaultAuth = { name: 'Fulano' }
 	const persistedAuth = JSON.parse(localStorage.getItem('auth'))
-	const [auth, setAuth] = useState(persistedAuth || mockAuth)
+	const [auth, setAuth] = useState(persistedAuth || defaultAuth)
 
 	const login = (authData) => {
 		setAuth(authData)
 		localStorage.setItem('auth', JSON.stringify(authData))
 	}
 
+	const logout = () => {
+		setAuth(defaultAuth)
+		localStorage.removeItem('auth')
+	}
+
 
 	return (
-		<AuthContext.Provider value={{ auth, login }}>
+		<AuthContext.Provider value={{ auth, login, logout }}>
 			{children}
 		</AuthContext.Provider>
 	)

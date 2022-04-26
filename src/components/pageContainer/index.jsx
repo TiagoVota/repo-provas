@@ -1,11 +1,17 @@
 import { Container } from './styles'
 
+import Header from '../../components/header'
+
 
 const PageContainer = ({ children: content }) => {
 	return (
-		<Container>
-			{content}
-		</Container>
+		<>
+			<Header />
+
+			<Container>
+				{content}
+			</Container>
+		</>
 	)
 }
 

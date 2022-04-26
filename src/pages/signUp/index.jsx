@@ -121,7 +121,6 @@ const SignUp = () => {
 						</Button>
 					</ChangePageWrapper>
 				</Form>
-
 			</FormContainer>
 		</AuthContainer>
 	)

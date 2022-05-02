@@ -1,4 +1,4 @@
-import ButtonsContainer from './buttonsContainer'
+
 import DisciplinesTests from './disciplinesTests'
 
 import { Container } from './styles'
@@ -522,8 +522,6 @@ const PageContent = ({ type, testData }) => {
 	
 	return (
 		<Container>
-			<ButtonsContainer type={type} />
-
 			{
 				Boolean(type === 'disciplines')
 					? <DisciplinesTests testData={mockTermsData} />

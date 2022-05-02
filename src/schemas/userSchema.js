@@ -10,7 +10,7 @@ const signUpSchema = Joi.object({
 	email: Joi.string().email({ tlds: { allow: false } }),
 	password: Joi.string().min(5).max(80).required(),
 	repeatPassword: Joi.ref('password')
-}).length(4)
+}).length(3)
 
 
 export {

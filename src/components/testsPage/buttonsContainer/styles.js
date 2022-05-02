@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
+import { searchBarHeight } from '../../../utils/sharedSizes'
+
 
 const Container = styled.div`
 	width: 100%;
 	padding: 20px 0px;
+	margin-top: ${searchBarHeight};
 	margin-bottom: 15px;
 
 	display: flex;

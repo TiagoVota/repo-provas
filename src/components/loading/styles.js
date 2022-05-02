@@ -14,8 +14,6 @@ const Container = styled.div`
 	font-size: 30px;
 	line-height: 33px;
 
-	color: #FFFFFF;
-
 	p {
 		margin-bottom: 30px;
 	}

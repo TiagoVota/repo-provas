@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { headerHeight, SearchBarHeight } from '../../utils/sharedSizes'
+import { headerHeight, searchBarHeight } from '../../utils/sharedSizes'
 
 
 const Container = styled.div`
 	width: 100%;
-	height: ${SearchBarHeight};
+	height: ${searchBarHeight};
 
 	position: fixed;
 	top: ${headerHeight};

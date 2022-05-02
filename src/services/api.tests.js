@@ -8,13 +8,14 @@ import BASE_URL from './baseUrl'
 const TESTS_URL = `${BASE_URL}/tests`
 
 const getDisciplineTests = ({ search, token }) => {
-	const endpoint = `${TESTS_URL}/tests/disciplines?search=${search}`
+	const endpoint = `${TESTS_URL}/discipline?search=${search}`
 	return axios.get(endpoint, makeConfig(token))
 }
 
 
 const getTeachersTests = ({ search, token }) => {
-	const endpoint = `${TESTS_URL}/tests/teachers?search=${search}`
+	console.log({ hey: 'teacher' })
+	const endpoint = `${TESTS_URL}/teacher?search=${search}`
 	return axios.get(endpoint, makeConfig(token))
 }
 

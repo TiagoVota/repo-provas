@@ -1,10 +1,12 @@
 import DisciplinesTests from './disciplinesTests'
+import TeachersTests from './teachersTests'
+import NoTests from './noTests'
 
 import { Container } from './styles'
 
 
 const PageContent = ({ type, testsData, handleHeadersClick }) => {
-	if (testsData.length === 0) return <>Sem provas ainda ☹</>
+	if (testsData.length === 0) return <NoTests />
 	
 	return (
 		<Container>
@@ -14,7 +16,10 @@ const PageContent = ({ type, testsData, handleHeadersClick }) => {
 						testsData={testsData}
 						handleHeadersClick={handleHeadersClick}
 					/>
-					: <></>
+					: <TeachersTests
+						testsData={testsData}
+						handleHeadersClick={handleHeadersClick}
+					/>
 			}
 		</Container>
 	)

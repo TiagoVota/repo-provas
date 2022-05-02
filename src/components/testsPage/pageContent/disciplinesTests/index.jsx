@@ -16,11 +16,9 @@ const DisciplinesTests = ({ testsData, handleHeadersClick }) => {
 					handleHeadersClick={handleHeadersClick}
 				/>)
 			}
-			
 		</SectionWrapper>
 	)
 }
 
 
 export default DisciplinesTests
-

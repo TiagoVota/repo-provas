@@ -4,11 +4,11 @@ import {
 	SectionContainer,
 	SectionHeader,
 	SectionWrapper
-} from '../../../../components'
+} from '../../../components'
 
 
 const CategoryContainer = ({ categoryInfo }) => {
-	const { name, teacher, tests } = categoryInfo
+	const { name, tests } = categoryInfo
 
 	const headerHeight = '30px'
 
@@ -23,7 +23,7 @@ const CategoryContainer = ({ categoryInfo }) => {
 				{
 					tests.map(test => <TestContainer
 						key={test.testId}
-						testInfo={{ ...test, teacher }}
+						testInfo={test}
 					/>)
 				}
 			</SectionWrapper>

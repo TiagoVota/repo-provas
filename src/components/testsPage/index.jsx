@@ -5,18 +5,24 @@ import PageContainer from '../pageContainer'
 import SearchBar from '../searchBar'
 import PageContent from './pageContent'
 import ButtonsContainer from './buttonsContainer'
-import { changeDisciplineTestsVisibility } from '../../helpers/testsHiddenHelper'
+import * as changeTestsVisibility from '../../helpers/testsHiddenHelper'
 
 
 const TestsPage = ({ type }) => {
 	const [testsData, setTestsData] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 
-	const handleHeadersClick = ({ termId, disciplineId }) => {
-		const newTests = changeDisciplineTestsVisibility({
+	const handleHeadersClick = ({ termId, disciplineId, teacherId }) => {
+		const changeVisibilityFunction = {
+			'disciplines': changeTestsVisibility.changeDisciplineTestsVisibility,
+			'teachers': changeTestsVisibility.changeTeacherTestsVisibility
+		}
+
+		const newTests = changeVisibilityFunction[type]({
 			testsData,
 			termId,
 			disciplineId,
+			teacherId,
 		})
 
 		setTestsData(newTests)

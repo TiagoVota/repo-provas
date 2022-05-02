@@ -13,8 +13,17 @@ const sanitizeDisciplineTests = (disciplineTestsData) => {
 }
 
 
+const sanitizeTeachersTests = (teachersTestsData) => {
+	const { teachers } = teachersTestsData
+	const newTeachers = teachers.map(teacher => {
+		return { ...teacher, isOpen: false }
+	})
+
+	return { teachers: newTeachers }
+}
 
 
 export {
-	sanitizeDisciplineTests
+	sanitizeDisciplineTests,
+	sanitizeTeachersTests,
 }

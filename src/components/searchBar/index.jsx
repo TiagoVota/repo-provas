@@ -38,7 +38,7 @@ const SearchBar = ({ type, setTestsData, isLoading, setIsLoading }) => {
 			},
 			sanitizeTests: {
 				'disciplines': sanitizeTests.sanitizeDisciplineTests,
-				'teachers': sanitizeTests.sanitizeDisciplineTests,
+				'teachers': sanitizeTests.sanitizeTeachersTests,
 			}
 		}
 

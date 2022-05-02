@@ -21,7 +21,23 @@ const changeDisciplineTestsVisibility = ({
 	return copyTestsData
 }
 
+const changeTeacherTestsVisibility = ({ testsData, teacherId }) => {
+	const copyTestsData = JSON.parse(JSON.stringify(testsData))
+
+	const teacherIndex = copyTestsData.teachers
+		.findIndex(teacher => teacher.teacherId === teacherId)
+	const teacherLayer = copyTestsData.teachers[teacherIndex]
+
+	const actualLayer = teacherLayer
+	const actualState = actualLayer.isOpen
+	
+	actualLayer.isOpen = !actualState
+
+	return copyTestsData
+}
+
 
 export {
 	changeDisciplineTestsVisibility,
+	changeTeacherTestsVisibility,
 }

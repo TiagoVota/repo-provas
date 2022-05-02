@@ -1,13 +1,23 @@
-import { useState } from 'react'
-import { Container } from './styles'
+import { SectionWrapper } from '../components'
+
+import TermContainer from './termContainer'
 
 
 const DisciplinesTests = ({ testData }) => {
-	const [disciplineTests, setDisciplineTests] = useState()
+	const { terms } = testData
+
+	console.log(testData)
+
 	return (
-		<Container>
+		<SectionWrapper isPrincipal>
+			{
+				terms.map(term => <TermContainer
+					key={term.termId}
+					termInfo={term}
+				/>)
+			}
 			
-		</Container>
+		</SectionWrapper>
 	)
 }
 

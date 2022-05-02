@@ -14,7 +14,6 @@ const getDisciplineTests = ({ search, token }) => {
 
 
 const getTeachersTests = ({ search, token }) => {
-	console.log({ hey: 'teacher' })
 	const endpoint = `${TESTS_URL}/teacher?search=${search}`
 	return axios.get(endpoint, makeConfig(token))
 }

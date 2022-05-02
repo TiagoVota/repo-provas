@@ -1,4 +1,6 @@
 
+import { sanitizeDisciplineTests } from '../../../helpers/testsDataHelper'
+
 import DisciplinesTests from './disciplinesTests'
 
 import { Container } from './styles'
@@ -524,7 +526,7 @@ const PageContent = ({ type, testData }) => {
 		<Container>
 			{
 				Boolean(type === 'disciplines')
-					? <DisciplinesTests testData={mockTermsData} />
+					? <DisciplinesTests testData={sanitizeDisciplineTests(testData)} />
 					: <></>
 			}
 		</Container>

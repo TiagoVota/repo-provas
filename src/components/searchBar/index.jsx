@@ -39,10 +39,7 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 
 		setIsLoading(true)
 		getTestsDict[type]({ search: finalSearch, token })
-			.then(({ data }) => {
-				console.log({ data })
-				return setTestData(data)
-			})
+			.then(({ data }) => setTestData(data))
 			.catch(({ request: { status }}) => handleFailGetTests(status))
 			.finally(() => setIsLoading(false))
 	}

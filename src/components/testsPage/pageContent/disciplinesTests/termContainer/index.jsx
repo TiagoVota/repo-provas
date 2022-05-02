@@ -8,13 +8,21 @@ import {
 } from '../../components'
 
 
-const TermContainer = ({ termInfo }) => {
-	const { number, disciplines, isOpen } = termInfo
+const TermContainer = ({ termInfo, handleHeadersClick }) => {
+	const { termId, number, disciplines, isOpen } = termInfo
 
-	
+	const changeTermVisibility = () => {
+		handleHeadersClick({ termId })
+	}
+
+	const changeDisciplineVisibility = (disciplineId) => {
+		handleHeadersClick({ termId, disciplineId })
+	}
+
+
 	return (
 		<SectionContainer isPrincipal>
-			<SectionHeader>
+			<SectionHeader onClick={changeTermVisibility} >
 				{`${number}º Período`}
 
 				<DropDownIcon isDown={!isOpen} />
@@ -25,6 +33,7 @@ const TermContainer = ({ termInfo }) => {
 					disciplines.map(discipline => <DisciplineContainer
 						key={discipline.disciplineId}
 						disciplineInfo={discipline}
+						changeVisibility={() => changeDisciplineVisibility(discipline.disciplineId)}
 					/>)
 				}
 			</SectionWrapper>

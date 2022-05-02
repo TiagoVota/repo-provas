@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import useAuth from '../../hooks/useAuth'
 
 import * as api from '../../services/api.tests'
+import * as sanitizeTests from '../../helpers/testsDataHelper'
 import { errorModal } from '../../factories/modalFactory'
 
 import { Form, FormContainer, Input } from '../formComponents'
@@ -10,7 +11,7 @@ import { Form, FormContainer, Input } from '../formComponents'
 import { Container, Line } from './styles'
 
 
-const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
+const SearchBar = ({ type, setTestsData, isLoading, setIsLoading }) => {
 	const { auth: { token } } = useAuth()
 	const [search, setSearch] = useState('')
 
@@ -30,16 +31,25 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 	}
 
 	const makeSearch = ({ search, token }) => {
-		const getTestsDict = {
-			'disciplines': api.getDisciplineTests,
-			'teachers': api.getTeachersTests
+		const functions = {
+			getTests: {
+				'disciplines': api.getDisciplineTests,
+				'teachers': api.getTeachersTests,
+			},
+			sanitizeTests: {
+				'disciplines': sanitizeTests.sanitizeDisciplineTests,
+				'teachers': sanitizeTests.sanitizeDisciplineTests,
+			}
 		}
 
 		const finalSearch = handleSearch(search)
 
 		setIsLoading(true)
-		getTestsDict[type]({ search: finalSearch, token })
-			.then(({ data }) => setTestData(data))
+		functions.getTests[type]({ search: finalSearch, token })
+			.then(({ data }) => {
+				const sanitizedTests = functions.sanitizeTests[type](data)
+				setTestsData(sanitizedTests)
+			})
 			.catch(({ request: { status }}) => handleFailGetTests(status))
 			.finally(() => setIsLoading(false))
 	}
@@ -84,4 +94,3 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 
 
 export default SearchBar
-

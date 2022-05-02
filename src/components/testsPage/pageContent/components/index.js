@@ -5,7 +5,7 @@ const SectionWrapper = styled.div`
 	width: 100%;
 	padding: ${p => p.isPrincipal ? '3px' : '0px'};
 
-	display: flex;
+	display: ${p => p.isHidden ? 'none' : 'flex'};
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
@@ -13,7 +13,7 @@ const SectionWrapper = styled.div`
 	gap: ${p => p.isPrincipal ? '17px' : '0px'};
 
 	:last-child {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 	}
 `
 
@@ -22,7 +22,6 @@ const SectionContainer = styled.div`
 	min-height: ${p => p.minHeight || '50px'};
 	padding: 0px 20px;
 
-	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -40,6 +39,26 @@ const SectionHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	font-size: ${p => p.isTestHeader ? '12px' : 'inherit'};
+
+	:hover {
+		cursor: ${p => p.isNotClickable ? 'auto' : 'pointer'};
+	}
+`
+
+const TestBox = styled.div`
+	width: 100%;
+	height: 30px;
+
+	font-size: 12px;
+	line-height: 24px;
+
+	color: rgba(0, 0, 0, 0.5);
+
+	:hover {
+		cursor: pointer;
+	}
 `
 
 
@@ -47,5 +66,6 @@ export {
 	SectionWrapper,
 	SectionContainer,
 	SectionHeader,
+	TestBox,
 }
 

@@ -3,10 +3,9 @@ import { SectionWrapper } from '../components'
 import TermContainer from './termContainer'
 
 
-const DisciplinesTests = ({ testData }) => {
-	const { terms } = testData
+const DisciplinesTests = ({ testsData, handleHeadersClick }) => {
+	const { terms } = testsData
 
-	console.log(testData)
 
 	return (
 		<SectionWrapper isPrincipal>
@@ -14,6 +13,7 @@ const DisciplinesTests = ({ testData }) => {
 				terms.map(term => <TermContainer
 					key={term.termId}
 					termInfo={term}
+					handleHeadersClick={handleHeadersClick}
 				/>)
 			}
 			

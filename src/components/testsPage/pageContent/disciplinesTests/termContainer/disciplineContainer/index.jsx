@@ -1,4 +1,5 @@
 import DropDownIcon from '../../../dropDownIcon'
+import CategoryContainer from './categoryContainer'
 
 import {
 	SectionContainer,
@@ -7,46 +8,28 @@ import {
 } from '../../../components'
 
 
-const DisciplineContainer = ({ disciplineInfo }) => {
+const DisciplineContainer = ({ disciplineInfo, changeVisibility }) => {
 	const { name, categories, isOpen } = disciplineInfo
 	
 	const headerHeight = '40px'
 
 
 	return (
-		<SectionContainer minHeight={headerHeight}>
-			<SectionHeader height={headerHeight}>
+		<SectionContainer minHeight={headerHeight} >
+			<SectionHeader height={headerHeight} onClick={changeVisibility} >
 				{name}
 
 				<DropDownIcon isDown={!isOpen} />
 			</SectionHeader>
-					
-			<SectionWrapper isHidden={!isOpen}>
+			
+			<SectionWrapper isHidden={!isOpen} >
 				{
-					Boolean(categories.length > 0)
-						?
-						categories.map(category => {
-							console.log('inferno')
-							if (!category) return
-
-							return(
-								<SectionContainer
-									key={category?.categoryId}
-								>
-									<SectionHeader>
-										{category?.name}
-
-									</SectionHeader>
-					
-
-					
-								</SectionContainer>
-							)
-						})
-						: <></>
+					categories.map(category => <CategoryContainer
+						key={category.categoryId}
+						categoryInfo={category}
+					/>)
 				}
 			</SectionWrapper>
-
 		</SectionContainer>
 	)
 }

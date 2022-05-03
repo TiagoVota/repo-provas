@@ -54,7 +54,8 @@ const Login = () => {
 				successModal('Login realizado!')
 				login({ token })
 				goHomepage()
-			}).catch(({ request: { status }}) => handleFailLogin(status))
+			})
+			.catch(({ request: { status }}) => handleFailLogin(status))
 	}
 
 	const handleFailLogin = (status) => {

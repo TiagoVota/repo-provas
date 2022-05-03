@@ -2,6 +2,7 @@ import Login from './login'
 import SignUp from './signUp'
 import Disciplines from './disciplines'
 import Teachers from './teachers'
+import AddTest from './addTest'
 
 
 export {
@@ -9,4 +10,5 @@ export {
 	SignUp,
 	Disciplines,
 	Teachers,
+	AddTest,
 }

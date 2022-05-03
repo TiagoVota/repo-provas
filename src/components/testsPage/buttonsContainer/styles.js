@@ -25,6 +25,10 @@ const Button = styled.button`
 	border: 1px solid #1976D2;
 
 	${p => p.isSelected ? '' : 'box-shadow: none;'}
+
+	@media(max-width: 650px) {
+		border-radius: 0px;
+	}
 `
 
 

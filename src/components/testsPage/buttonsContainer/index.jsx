@@ -1,42 +1,42 @@
 import { useNavigate } from 'react-router-dom'
 
-import { successModal } from '../../../factories/modalFactory'
-
 import { Button, Container } from './styles'
 
 
-const ButtonsContainer = ({ type, isDisable }) => {
+const ButtonsContainer = ({ type: pageType, isDisable }) => {
 	const navigate = useNavigate()
 
-	const isDisciplinePage = Boolean(type === 'disciplines')
+	const isPageSelected = (type) => type === pageType
 
 	const handleDisciplineClick = () => navigate('/disciplines')
 	const handleTeacherClick = () => navigate('/teachers')
-	const handleAddClick = () => successModal('Funcionalidade logo chegando!')
+	const handleAddClick = () => navigate('/add-test')
 
 	return (
 		<Container>
 			<Button
-				isSelected={isDisciplinePage}
+				isSelected={isPageSelected('disciplines')}
 				onClick={handleDisciplineClick}
-				disable={isDisable}
+				disabled={isDisable}
 				isDisable={isDisable}
 			>
 				DISCIPLINAS
 			</Button>
 
 			<Button
-				isSelected={!isDisciplinePage} width={'180px'}
+				isSelected={isPageSelected('teachers')}
+				width={'180px'}
 				onClick={handleTeacherClick}
-				disable={isDisable}
+				disabled={isDisable}
 				isDisable={isDisable}
 			>
 				PESSOA INSTRUTORA
 			</Button>
 
 			<Button
+				isSelected={isPageSelected('addTest')}
 				onClick={handleAddClick}
-				disable={isDisable}
+				disabled={isDisable}
 				isDisable={isDisable}
 			>
 				ADICIONAR

@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
+import * as changeTestsVisibility from '../../helpers/testsHiddenHelper'
+
 import Loading from '../loading'
 import PageContainer from '../pageContainer'
 import SearchBar from '../searchBar'
 import PageContent from './pageContent'
 import ButtonsContainer from './buttonsContainer'
-import * as changeTestsVisibility from '../../helpers/testsHiddenHelper'
 
 
 const TestsPage = ({ type }) => {
@@ -15,7 +16,7 @@ const TestsPage = ({ type }) => {
 	const handleHeadersClick = ({ termId, disciplineId, teacherId }) => {
 		const changeVisibilityFunction = {
 			'disciplines': changeTestsVisibility.changeDisciplineTestsVisibility,
-			'teachers': changeTestsVisibility.changeTeacherTestsVisibility
+			'teachers': changeTestsVisibility.changeTeacherTestsVisibility,
 		}
 
 		const newTests = changeVisibilityFunction[type]({

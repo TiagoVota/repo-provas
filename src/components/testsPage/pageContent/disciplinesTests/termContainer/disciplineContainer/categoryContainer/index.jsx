@@ -1,9 +1,9 @@
-import TestContainer from './testContainer'
+import TestContainer from '../../../../components/testContainer'
 
 import {
 	SectionContainer,
 	SectionHeader,
-	SectionWrapper
+	SectionWrapper,
 } from '../../../../components'
 
 

@@ -5,7 +5,8 @@ const NoTests = () => {
 	return (
 		<Container >
 			Sem provas ainda ☹<br/>
-			Que tal ser o primeiro a adicionar uma? ʕ•́ᴥ•̀ʔっ
+			Que tal ser o primeiro a adicionar uma?<br/>
+			ʕ•́ᴥ•̀ʔっ♡
 		</Container>
 	)
 }

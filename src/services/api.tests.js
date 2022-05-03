@@ -19,6 +19,18 @@ const getTeachersTests = ({ search, token }) => {
 }
 
 
+const getInsertTestInfo = ({ token }) => {
+	return axios.get(`${TESTS_URL}/insert-info`, makeConfig(token))
+}
+
+
+const postTest = ({ testInsertInfo, token }) => {
+	const { name, pdfUrl, categoryId, teacherDisciplineId } = testInsertInfo
+	const body = { name, pdfUrl, categoryId, teacherDisciplineId }
+	return axios.post(`${TESTS_URL}`, body, makeConfig(token))
+}
+
+
 const addTestView = ({ testId, token }) => {
 	const endpoint = `${TESTS_URL}/${testId}/views/add`
 	const emptyBody = {}
@@ -29,5 +41,7 @@ const addTestView = ({ testId, token }) => {
 export {
 	getDisciplineTests,
 	getTeachersTests,
+	getInsertTestInfo,
+	postTest,
 	addTestView,
 }

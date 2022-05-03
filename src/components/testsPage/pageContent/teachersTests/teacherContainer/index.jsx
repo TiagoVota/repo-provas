@@ -6,7 +6,6 @@ import {
 	SectionHeader,
 	SectionContainer,
 } from '../../components'
-import NoTests from '../../noTests'
 
 
 const TeacherContainer = ({ teacherInfo, handleHeadersClick }) => {

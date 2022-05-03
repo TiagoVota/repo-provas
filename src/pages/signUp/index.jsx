@@ -54,7 +54,8 @@ const SignUp = () => {
 				successModal('Cadastro realizado!')
 				login(userInfo)
 				goHomepage()
-			}).catch(({ request: { status }}) => handleFailLogin(status))
+			})
+			.catch(({ request: { status }}) => handleFailLogin(status))
 	}
 
 	const handleFailLogin = (status) => {

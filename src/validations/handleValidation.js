@@ -20,6 +20,8 @@ const improveErrorText = (errorStr) => {
 		['email', 'E-mail'],
 		['password', 'Senha'],
 		['repeatPassword', 'Confirmação da senha'],
+		['pdfUrl', 'PDF da prova'],
+		['/^(http:\\/\\/)|(https:\\/\\/)/', 'Começar com "http://" ou "https://"']
 	]
 
 	return strReplaces.reduce((acc, rep) => acc.replace(rep[0], rep[1]), errorStr)

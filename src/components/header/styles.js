@@ -21,6 +21,10 @@ const Container = styled.header`
 	font-weight: bold;
 	font-size: 26px;
 	line-height: 31px;
+
+	@media (max-width: 650px) {
+		padding: 0px 10px;
+	}
 `
 
 const Logo = styled.img`

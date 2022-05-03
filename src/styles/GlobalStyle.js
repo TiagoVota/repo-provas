@@ -77,6 +77,25 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 
+	select {
+		font-family: 'Poppins';
+		font-style: normal;
+		font-weight: normal;
+
+		border-radius: 4px;
+		border: 1px solid #C4C4C4;
+
+		color: rgba(0, 0, 0, 0.8);
+
+		background-color: ${p => p.isDisable ? '#F2F2F2' : '#FFFFFF'};
+
+		pointer-events: ${p => p.isDisable ? 'not-allowed' : 'all'};
+
+		:focus {
+			outline: none;
+		}
+	}
+
 	a {
 		text-decoration: none;
 

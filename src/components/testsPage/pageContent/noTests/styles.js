@@ -2,24 +2,19 @@ import styled from 'styled-components'
 
 
 const Container = styled.div`
-	margin-top: 30px;
 	width: 100%;
+	height: 50px;
 
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 
-	font-weight: bold;
-	font-size: 30px;
-	line-height: 33px;
-
-	p {
-		margin-bottom: 30px;
-	}
+	line-height: 25px;
 `
 
 
 export {
 	Container,
 }
+

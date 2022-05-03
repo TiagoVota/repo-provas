@@ -50,9 +50,9 @@ const Login = () => {
 		if (!isValid) return errorModal(error)
 
 		api.postLogin(body)
-			.then(({ data: userInfo }) => {
+			.then(({ data: token }) => {
 				successModal('Login realizado!')
-				login(userInfo)
+				login({ token })
 				goHomepage()
 			}).catch(({ request: { status }}) => handleFailLogin(status))
 	}

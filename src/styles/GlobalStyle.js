@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Poppins', sans-serif;
 		font-style: normal;
 		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
 		color: rgba(0, 0, 0, 0.8);
 
     background-color: #FAFAFA;
@@ -50,13 +52,13 @@ const GlobalStyle = createGlobalStyle`
 	input {
 		display: flex;
 		align-items: center;
-		letter-spacing: 0.15px;
-
+		
 		font-family: 'Poppins';
 		font-style: normal;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 24px;
+		letter-spacing: 0.15px;
 
 		border-radius: 4px;
 		border: 1px solid #C4C4C4;

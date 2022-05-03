@@ -9,7 +9,7 @@ const LoaderSpinner = ({ type, color, height, width, heightDiscount }) => {
 	return (
 		<Container heightDiscount={heightDiscount || '0px'}>
 			<Loader
-				color={color || '#FFFFFF'}
+				color={color || 'rgba(0, 0, 0, 0.8)'}
 				height={height || width || '100'}
 				width={width || height || '100'}
 			/>

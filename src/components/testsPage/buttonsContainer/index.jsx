@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 
-import { successModal } from '../../../../factories/modalFactory'
+import { successModal } from '../../../factories/modalFactory'
 
 import { Button, Container } from './styles'
 
 
-const ButtonsContainer = ({ type }) => {
+const ButtonsContainer = ({ type, isDisable }) => {
 	const navigate = useNavigate()
 
 	const isDisciplinePage = Boolean(type === 'disciplines')
@@ -19,6 +19,8 @@ const ButtonsContainer = ({ type }) => {
 			<Button
 				isSelected={isDisciplinePage}
 				onClick={handleDisciplineClick}
+				disable={isDisable}
+				isDisable={isDisable}
 			>
 				DISCIPLINAS
 			</Button>
@@ -26,12 +28,16 @@ const ButtonsContainer = ({ type }) => {
 			<Button
 				isSelected={!isDisciplinePage} width={'180px'}
 				onClick={handleTeacherClick}
+				disable={isDisable}
+				isDisable={isDisable}
 			>
 				PESSOA INSTRUTORA
 			</Button>
 
 			<Button
 				onClick={handleAddClick}
+				disable={isDisable}
+				isDisable={isDisable}
 			>
 				ADICIONAR
 			</Button>

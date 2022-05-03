@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import { Container } from './styles'
+import { SectionWrapper } from '../components'
+
+import TermContainer from './termContainer'
 
 
-const DisciplinesTests = ({ testData }) => {
-	const [disciplineTests, setDisciplineTests] = useState()
+const DisciplinesTests = ({ testsData, handleHeadersClick }) => {
+	const { terms } = testsData
+
+
 	return (
-		<Container>
-			
-		</Container>
+		<SectionWrapper isPrincipal>
+			{
+				terms.map(term => <TermContainer
+					key={term.termId}
+					termInfo={term}
+					handleHeadersClick={handleHeadersClick}
+				/>)
+			}
+		</SectionWrapper>
 	)
 }
 
 
 export default DisciplinesTests
-

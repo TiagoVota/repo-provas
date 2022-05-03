@@ -1,19 +1,29 @@
-const sanitizeDisciplineTests = (testData) => {
-	const output = testData.map(term => {
+const sanitizeDisciplineTests = (disciplineTestsData) => {
+	const { terms } = disciplineTestsData
+	const newTerms = terms.map(term => {
 		const newDisciplines = term?.disciplines.map(discipline => {
-			const newCategories = discipline?.tests.map(category => {
 
-				return { ...category, isOpen: false }
-			})
-			return { ...discipline, categories: newCategories, isOpen: false }
+			return { ...discipline, isOpen: false }
 		})
+
 		return { ...term, disciplines: newDisciplines, isOpen: false }
 	})
 
-	return output
+	return { terms: newTerms }
+}
+
+
+const sanitizeTeachersTests = (teachersTestsData) => {
+	const { teachers } = teachersTestsData
+	const newTeachers = teachers.map(teacher => {
+		return { ...teacher, isOpen: false }
+	})
+
+	return { teachers: newTeachers }
 }
 
 
 export {
-	sanitizeDisciplineTests
+	sanitizeDisciplineTests,
+	sanitizeTeachersTests,
 }

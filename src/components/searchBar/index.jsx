@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import useAuth from '../../hooks/useAuth'
 
 import * as api from '../../services/api.tests'
+import * as sanitizeTests from '../../helpers/testsDataHelper'
 import { errorModal } from '../../factories/modalFactory'
 
 import { Form, FormContainer, Input } from '../formComponents'
@@ -10,9 +11,13 @@ import { Form, FormContainer, Input } from '../formComponents'
 import { Container, Line } from './styles'
 
 
-const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
+const SearchBar = ({ type, setTestsData, isLoading, setIsLoading }) => {
 	const { auth: { token } } = useAuth()
 	const [search, setSearch] = useState('')
+
+	useEffect(() => {
+		makeSearch({ search: 'all', token })
+	}, [])
 
 	const placeholderFinal = Boolean(type === 'disciplines')
 		? 'disciplina'
@@ -22,18 +27,38 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 
-		const getTestsDict = {
-			'disciplines': api.getDisciplineTests,
-			'teachers': api.getTeachersTests
+		makeSearch({ search, token })
+	}
+
+	const makeSearch = ({ search, token }) => {
+		const functions = {
+			getTests: {
+				'disciplines': api.getDisciplineTests,
+				'teachers': api.getTeachersTests,
+			},
+			sanitizeTests: {
+				'disciplines': sanitizeTests.sanitizeDisciplineTests,
+				'teachers': sanitizeTests.sanitizeTeachersTests,
+			}
 		}
 
+		const finalSearch = handleSearch(search)
+
 		setIsLoading(true)
-		getTestsDict[type]({ search, token })
-			.then(({ data: testData }) => setTestData(testData))
+		functions.getTests[type]({ search: finalSearch, token })
+			.then(({ data }) => {
+				const sanitizedTests = functions.sanitizeTests[type](data)
+				setTestsData(sanitizedTests)
+			})
 			.catch(({ request: { status }}) => handleFailGetTests(status))
 			.finally(() => setIsLoading(false))
 	}
 
+	const handleSearch = (search) => {
+		const isAllSearch = search === 'all'
+		return Boolean(isAllSearch) ? '' : search
+	}
+	
 	const handleFailGetTests = (status) => {
 		const msgStatus = {
 			401: 'Acesso negado, por favor tente <a href=\'/\'>entrar</a> novamente!',
@@ -57,7 +82,6 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 						onChange={({ target: { value }}) => setSearch(value)}
 						value={search}
 						isDisable={isLoading}
-						required
 					/>
 				</Form>
 			</FormContainer>
@@ -69,4 +93,3 @@ const SearchBar = ({ type, setTestData, isLoading, setIsLoading }) => {
 
 
 export default SearchBar
-

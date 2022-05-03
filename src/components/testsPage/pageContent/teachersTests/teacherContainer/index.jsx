@@ -19,6 +19,7 @@ const TeacherContainer = ({ teacherInfo, handleHeadersClick }) => {
 	}
 
 	
+	if (categories.length === 0) return <></>
 	return (
 		<SectionContainer minHeight={headerHeight} isPrincipal >
 			<SectionHeader height={headerHeight} onClick={changeTeacherVisibility} >
@@ -29,12 +30,10 @@ const TeacherContainer = ({ teacherInfo, handleHeadersClick }) => {
 			
 			<SectionWrapper isHidden={!isOpen} >
 				{
-					Boolean(categories.length === 0)
-						? <NoTests isLowerFont />
-						: categories.map(category => <CategoryContainer
-							key={category.categoryId}
-							categoryInfo={category}
-						/>)
+					categories.map(category => <CategoryContainer
+						key={category.categoryId}
+						categoryInfo={category}
+					/>)
 				}
 			</SectionWrapper>
 		</SectionContainer>

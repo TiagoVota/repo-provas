@@ -1,3 +1,5 @@
+import { haveTests } from '../../../helpers/haveTestsHelper'
+
 import DisciplinesTests from './disciplinesTests'
 import TeachersTests from './teachersTests'
 import NoTests from './noTests'
@@ -6,8 +8,7 @@ import { Container } from './styles'
 
 
 const PageContent = ({ type, testsData, handleHeadersClick }) => {
-	if (testsData.length === 0) return <NoTests />
-	
+	if (!haveTests(testsData)) return <NoTests />
 	return (
 		<Container>
 			{

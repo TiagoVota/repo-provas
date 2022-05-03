@@ -82,7 +82,6 @@ const SearchBar = ({ type, setTestsData, isLoading, setIsLoading }) => {
 						onChange={({ target: { value }}) => setSearch(value)}
 						value={search}
 						isDisable={isLoading}
-						required
 					/>
 				</Form>
 			</FormContainer>

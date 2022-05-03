@@ -13,6 +13,7 @@ const CategoryContainer = ({ categoryInfo }) => {
 	const headerHeight = '30px'
 
 
+	if (tests.length === 0) return <></>
 	return (
 		<SectionContainer minHeight={headerHeight} >
 			<SectionHeader height={headerHeight} isNotClickable isTestHeader >

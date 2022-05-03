@@ -14,6 +14,7 @@ const DisciplineContainer = ({ disciplineInfo, changeVisibility }) => {
 	const headerHeight = '40px'
 
 
+	if (categories.length === 0) return <></>
 	return (
 		<SectionContainer minHeight={headerHeight} >
 			<SectionHeader height={headerHeight} onClick={changeVisibility} >

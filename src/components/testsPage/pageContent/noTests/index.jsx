@@ -1,10 +1,11 @@
 import { Container } from './styles'
 
 
-const NoTests = ({ isLowerFont }) => {
+const NoTests = () => {
 	return (
-		<Container isLowerFont={isLowerFont} >
-			Sem provas ainda ☹
+		<Container >
+			Sem provas ainda ☹<br/>
+			Que tal ser o primeiro a adicionar uma? ʕ•́ᴥ•̀ʔっ
 		</Container>
 	)
 }

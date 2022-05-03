@@ -20,6 +20,7 @@ const TermContainer = ({ termInfo, handleHeadersClick }) => {
 	}
 
 
+	if (disciplines.length === 0) return <></>
 	return (
 		<SectionContainer isPrincipal>
 			<SectionHeader onClick={changeTermVisibility} >
@@ -33,7 +34,9 @@ const TermContainer = ({ termInfo, handleHeadersClick }) => {
 					disciplines.map(discipline => <DisciplineContainer
 						key={discipline.disciplineId}
 						disciplineInfo={discipline}
-						changeVisibility={() => changeDisciplineVisibility(discipline.disciplineId)}
+						changeVisibility={() => {
+							return changeDisciplineVisibility(discipline.disciplineId)
+						}}
 					/>)
 				}
 			</SectionWrapper>
